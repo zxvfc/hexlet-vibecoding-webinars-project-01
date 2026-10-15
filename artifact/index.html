@@ -1,0 +1,275 @@
+<title>Магнитары: архив дайджеста</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column; header with topics, then the link feed, rules collapsed at the bottom. */
+:root {
+  --bg: #eef0f6;
+  --surface: #ffffff;
+  --fg: #171a2b;
+  --muted: #5c6280;
+  --line: #d6d9e8;
+  --accent: #6a3fd1;
+  --accent-soft: #e7defc;
+  --warn: #a14a00;
+  --font-display: "Unbounded", "Golos Text", system-ui, sans-serif;
+  --font-body: "Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1120; --surface: #181b2e; --fg: #e7e8f3; --muted: #9a9fbd;
+    --line: #2b2f4a; --accent: #b39bff; --accent-soft: #2a2350; --warn: #ffb36b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1120; --surface: #181b2e; --fg: #e7e8f3; --muted: #9a9fbd;
+  --line: #2b2f4a; --accent: #b39bff; --accent-soft: #2a2350; --warn: #ffb36b;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 32px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 28px; }
+h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 5vw, 34px); line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 500; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; margin: 0; color: var(--muted); }
+.lede { margin: 8px 0 0; color: var(--muted); max-width: 62ch; }
+.mono { font-family: var(--font-mono); font-size: 12.5px; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 20px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.stats b { color: var(--fg); font-weight: 600; }
+section { display: flex; flex-direction: column; gap: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface);
+  border-radius: 999px; padding: 4px 6px 4px 12px; font: inherit; color: var(--fg); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.chip .x { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 16px; line-height: 1; padding: 0 4px; border-radius: 50%; }
+.chip .x:hover { color: var(--fg); }
+.chip.all { padding-right: 12px; }
+form.add { display: flex; gap: 8px; flex-wrap: wrap; }
+input[type="text"], input[type="search"] { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 10px; min-width: 0; flex: 1 1 200px; }
+button.primary { font: inherit; font-weight: 500; background: var(--accent); color: var(--bg); border: 0; border-radius: 8px; padding: 7px 14px; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.feed { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.item { padding-block: 16px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 92px 1fr; gap: 4px 16px; }
+.item time { grid-row: span 3; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+.item a.t { color: var(--fg); font-weight: 600; font-size: 16px; text-decoration: none; text-wrap: balance; }
+.item a.t:hover { color: var(--accent); text-decoration: underline; }
+.item .meta { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 4px 12px; min-width: 0; }
+.item .meta .src { color: var(--accent); }
+.item p { margin: 2px 0 0; max-width: 62ch; min-width: 0; }
+@media (max-width: 520px) { .item { grid-template-columns: 1fr; } .item time { grid-row: auto; padding: 0; } }
+.empty { padding: 24px; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); }
+.note { color: var(--warn); font-size: 13px; }
+.hint { margin: 0; color: var(--muted); font-size: 13px; max-width: 64ch; }
+.hint code { font-family: var(--font-mono); font-size: 12px; }
+.chip.going { opacity: .55; text-decoration: line-through; }
+.pending { border: 1px dashed var(--accent); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.pending h3 { margin: 0; font-size: 13px; font-weight: 600; color: var(--accent); }
+.pending ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.pending li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.pending .op { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.pending button { font: inherit; font-size: 13px; color: var(--muted); background: none; border: 0; text-decoration: underline; cursor: pointer; padding: 0; }
+details { border-top: 1px solid var(--line); padding-top: 16px; }
+summary { cursor: pointer; font-family: var(--font-display); font-weight: 500; font-size: 15px; }
+details ul { padding-left: 20px; margin: 12px 0 0; display: flex; flex-direction: column; gap: 6px; max-width: 64ch; }
+details code { font-family: var(--font-mono); font-size: 12.5px; background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Магнитары: архив дайджеста</h1>
+    <p class="lede">Ссылки, которые часовой поиск Claude Code нашёл и отправил в Telegram. Здесь же список тем, по которым он ищет.</p>
+  </header>
+
+  <div class="stats mono" id="stats" aria-live="polite">Загружаю архив…</div>
+
+  <section aria-labelledby="h-topics">
+    <h2 id="h-topics">Темы поиска</h2>
+    <p class="hint">Список тем хранится в репозитории, в файле <code>topics.txt</code>. Правка здесь становится заявкой: Claude применит её на ближайшем часовом запуске и сделает коммит.</p>
+    <div class="chips" id="topics"></div>
+    <div class="pending" id="pending" hidden>
+      <h3>Ожидают применения</h3>
+      <ul id="pending-list"></ul>
+    </div>
+    <form class="add" id="add-topic" hidden>
+      <input type="text" id="topic-input" placeholder="Новая тема, например «быстрые радиовсплески»" maxlength="80" aria-label="Новая тема">
+      <button class="primary" type="submit">Добавить тему</button>
+    </form>
+    <p class="note" id="topic-note" hidden></p>
+  </section>
+
+  <section aria-labelledby="h-feed">
+    <h2 id="h-feed">Найденные публикации</h2>
+    <input type="search" id="q" placeholder="Поиск по заголовку, источнику, пересказу" aria-label="Поиск по архиву">
+    <ul class="feed" id="feed"></ul>
+    <div class="empty" id="empty">Архив пуст. Ссылки появятся после первого запуска дайджеста: Claude записывает сюда каждую публикацию, прошедшую отбор, вместе с датой, источником и коротким пересказом.</div>
+  </section>
+
+  <details>
+    <summary>Правила отбора</summary>
+    <ul>
+      <li>Тема должна быть основным предметом материала.</li>
+      <li>Подходят статьи и препринты, пресс-релизы обсерваторий, новости научных изданий.</li>
+      <li>Не подходят перепечатки без новых данных, форумы, соцсети, страницы за пейволом.</li>
+      <li>Возраст не больше 30 дней; материал без даты пропускается.</li>
+      <li>Источники: arxiv.org (astro-ph.HE), nasa.gov, esa.int, chandra.harvard.edu, phys.org, sciencedaily.com, space.com, universetoday.com, nature.com/news, science.org/news.</li>
+      <li>Дубли определяются по нормализованному адресу (домен в нижнем регистре, без <code>#фрагмента</code>, без <code>utm_*</code>, без слеша в конце); идентификатор — sha1.</li>
+      <li>Не больше 10 ссылок за запуск, самые новые по дате.</li>
+      <li>Темы хранятся в <code>topics.txt</code> в репозитории. Заявки со страницы — это действия «добавить» или «удалить», они применяются поверх файла. Если тему меняли и здесь, и в репозитории, побеждает более позднее действие, а Claude сообщает об этом в Telegram.</li>
+      <li>Нет нового — «Ничего не нашлось», не чаще раза в час. Ошибка поиска — «Проверка не выполнена: &lt;причина&gt;».</li>
+    </ul>
+  </details>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let links = [], topics = [], requests = [], filterTopic = null, canWrite = false, db = null;
+const norm = (s) => String(s).trim().replace(/\s+/g, " ").toLowerCase();
+const pendingOp = (name, op) => requests.some((r) => r.op === op && norm(r.name) === norm(name));
+
+async function request(op, name) {
+  if (!db) return;
+  if (pendingOp(name, op)) { showNote("Такая заявка уже есть."); return; }
+  const opposite = requests.find((r) => r.op !== op && norm(r.name) === norm(name));
+  try {
+    if (opposite) await db.doc("requests/" + opposite.id).delete();
+    else await db.collection("requests").add({ op, name, at: new Date().toISOString() });
+    showNote("");
+  } catch (err) { showNote("Не удалось сохранить заявку: " + (err.message || err.code)); }
+}
+
+function renderPending() {
+  const list = $("pending-list");
+  list.replaceChildren();
+  for (const r of [...requests].sort((a, b) => String(a.at).localeCompare(String(b.at)))) {
+    const li = document.createElement("li");
+    const op = document.createElement("span"); op.className = "op";
+    op.textContent = r.op === "add" ? "добавить" : "удалить";
+    const name = document.createElement("span"); name.textContent = r.name;
+    li.append(op, name);
+    if (canWrite) {
+      const cancel = document.createElement("button"); cancel.type = "button"; cancel.textContent = "отменить";
+      cancel.onclick = async () => {
+        try { await db.doc("requests/" + r.id).delete(); }
+        catch (err) { showNote("Не удалось отменить: " + (err.message || err.code)); }
+      };
+      li.append(cancel);
+    }
+    list.append(li);
+  }
+  $("pending").hidden = requests.length === 0;
+}
+
+function fmtDate(s) {
+  if (!s) return "—";
+  const d = new Date(s);
+  if (isNaN(d)) return String(s).slice(0, 10);
+  return d.toLocaleDateString("ru-RU", { day: "2-digit", month: "short", year: "numeric" });
+}
+function safeUrl(u) {
+  try { const p = new URL(u); return (p.protocol === "https:" || p.protocol === "http:") ? p.href : null; } catch { return null; }
+}
+
+function renderTopics() {
+  const box = $("topics");
+  box.replaceChildren();
+  const all = document.createElement("button");
+  all.className = "chip all"; all.type = "button";
+  all.textContent = "Все темы";
+  all.setAttribute("aria-pressed", String(filterTopic === null));
+  all.onclick = () => { filterTopic = null; renderTopics(); renderFeed(); };
+  box.append(all);
+  for (const t of topics) {
+    const chip = document.createElement("span");
+    chip.className = "chip" + (pendingOp(t.name, "remove") ? " going" : ""); chip.tabIndex = 0; chip.setAttribute("role", "button");
+    chip.setAttribute("aria-pressed", String(filterTopic === t.name));
+    const label = document.createElement("span"); label.textContent = t.name;
+    chip.append(label);
+    const pick = () => { filterTopic = filterTopic === t.name ? null : t.name; renderTopics(); renderFeed(); };
+    chip.onclick = pick;
+    chip.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } };
+    if (canWrite && !pendingOp(t.name, "remove")) {
+      const x = document.createElement("button");
+      x.className = "x"; x.type = "button"; x.textContent = "×";
+      x.setAttribute("aria-label", "Предложить удалить тему " + t.name);
+      x.onclick = (e) => { e.stopPropagation(); request("remove", t.name); };
+      chip.append(x);
+    }
+    box.append(chip);
+  }
+}
+
+function renderFeed() {
+  const q = $("q").value.trim().toLowerCase();
+  const rows = links
+    .filter((l) => !filterTopic || l.topic === filterTopic)
+    .filter((l) => !q || [l.title, l.source, l.summary, l.url].join(" ").toLowerCase().includes(q))
+    .sort((a, b) => String(b.published || "").localeCompare(String(a.published || "")));
+  const feed = $("feed");
+  feed.replaceChildren();
+  for (const l of rows) {
+    const li = document.createElement("li"); li.className = "item";
+    const time = document.createElement("time"); time.className = "mono";
+    time.dateTime = l.published || ""; time.textContent = fmtDate(l.published);
+    const a = document.createElement("a"); a.className = "t";
+    const href = safeUrl(l.url); if (href) { a.href = href; a.target = "_blank"; a.rel = "noopener noreferrer"; }
+    a.textContent = l.title || l.url || "Без заголовка";
+    const meta = document.createElement("div"); meta.className = "meta";
+    const src = document.createElement("span"); src.className = "src"; src.textContent = l.source || "";
+    const topic = document.createElement("span"); topic.textContent = l.topic || "";
+    const found = document.createElement("span"); found.textContent = l.found ? "найдено " + fmtDate(l.found) : "";
+    meta.append(src, topic, found);
+    li.append(time, a, meta);
+    if (l.summary) { const p = document.createElement("p"); p.textContent = l.summary; li.append(p); }
+    feed.append(li);
+  }
+  $("empty").hidden = rows.length > 0;
+  if (links.length && !rows.length) $("empty").textContent = "Под фильтр ничего не попало. Сбросьте тему или поиск.";
+  const sources = new Set(links.map((l) => l.source).filter(Boolean)).size;
+  const last = links.map((l) => l.found).filter(Boolean).sort().pop();
+  $("stats").innerHTML = "";
+  for (const [k, v] of [["ссылок", links.length], ["источников", sources], ["тем", topics.length], ["последняя находка", last ? fmtDate(last) : "—"]]) {
+    const s = document.createElement("span"); const b = document.createElement("b"); b.textContent = v;
+    s.append(k + ": ", b); $("stats").append(s);
+  }
+}
+
+function showNote(text) { const n = $("topic-note"); n.textContent = text; n.hidden = !text; }
+
+$("q").addEventListener("input", renderFeed);
+renderTopics(); renderFeed();
+$("stats").textContent = "Загружаю архив…";
+
+(async () => {
+  db = await window.claude?.use?.("db");
+  if (!db) { $("stats").textContent = "Архив недоступен в этом просмотре. Откройте страницу на claude.ai, войдя в аккаунт."; return; }
+  const user = await window.claude.use("user");
+  canWrite = user ? (await user.can("data.write")) !== false : false;
+  $("add-topic").hidden = !canWrite;
+  db.collection("topics").onSnapshot((snap) => {
+    topics = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((t) => t.name)
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    renderTopics(); renderFeed();
+  }, (e) => showNote("Темы не загрузились: " + e.message));
+  db.collection("requests").onSnapshot((snap) => {
+    requests = snap.docs.map((d) => ({ id: d.id, ...d.data() })).filter((r) => r.name && r.op);
+    renderPending(); renderTopics();
+  }, (e) => showNote("Заявки не загрузились: " + e.message));
+  db.collection("links").onSnapshot((snap) => {
+    links = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    renderFeed();
+  }, (e) => { $("stats").textContent = "Архив не загрузился: " + e.message; });
+})();
+
+$("add-topic").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = $("topic-input").value.trim();
+  if (!name || !db) return;
+  if (topics.some((t) => norm(t.name) === norm(name)) && !pendingOp(name, "remove")) { showNote("Такая тема уже есть."); return; }
+  await request("add", name);
+  $("topic-input").value = "";
+});
+</script>

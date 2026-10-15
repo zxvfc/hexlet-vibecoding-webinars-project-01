@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Magnetar X-ray flares as elementary reconnection events in a self-organized critical magnetosphere",
+    "url": "https://arxiv.org/abs/2610.14581",
+    "source": "arxiv.org",
+    "published": "2026-10-10",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "По 789 коротким вспышкам магнитара SGR J1935+2154 авторы показывают, что элементарная единица выделения энергии — не весь всплеск, а его короткие подструктуры. Статистика вспышек похожа на солнечные и звёздные вспышки и описывается моделью самоорганизованной критичности магнитосферы.",
+    "id": "f4f62fc5a01983566caa494cf9367c2518485988"
+  },
+  {
+    "title": "A record-breaking X-ray flash may reveal the birth of a magnetar",
+    "url": "https://www.sciencedaily.com/releases/2026/09/260930020252.htm",
+    "source": "sciencedaily.com",
+    "published": "2026-09-30",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Короткий гамма-всплеск EP250704a/GRB 250704B сопровождался почти десятиминутным рентгеновским излучением, которое зафиксировал Einstein Probe. Сверхновой не нашли, поэтому исследователи считают источником слияние двух нейтронных звёзд с рождением магнитара.",
+    "id": "9edadeb380117aa26e1a363ce62523bb9b210e25"
+  },
+  {
+    "title": "Angular structure of finite-field vacuum birefringence in magnetars",
+    "url": "https://arxiv.org/abs/2609.38573",
+    "source": "arxiv.org",
+    "published": "2026-09-29",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Расчёт вакуумного двулучепреломления в сильном поле с учётом угла распространения показывает, что упрощённая формула завышает эффект вдали от перпендикулярного направления. Для дипольных моделей магнитаров поправка составляет от долей процента до нескольких процентов.",
+    "id": "c21c1cadc46a2eba04c90d718dd87a286ed12384"
+  },
+  {
+    "title": "Fast Radio Bursts from Induced Upscattering. I. Magnetar Polar Fireballs",
+    "url": "https://arxiv.org/abs/2609.36114",
+    "source": "arxiv.org",
+    "published": "2026-09-28",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Предложен механизм быстрых радиовсплесков: электрон-позитронный «огненный шар» над полюсом магнитара, разогнанный рентгеновским всплеском, переводит низкочастотные волны в гигагерцовый диапазон. Модель объясняет светимость галактического FRB 20200428 и самых ярких внегалактических всплесков.",
+    "id": "31d966e14f87efaa9e27eb173340b5ab8190f478"
+  },
+  {
+    "title": "A magnetar-powered jet-wind outflow in gamma-ray burst-associated supernovae: Application to the thermal components of GRB 060218-SN 2006aj",
+    "url": "https://arxiv.org/abs/2609.27649",
+    "source": "arxiv.org",
+    "published": "2026-09-23",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Модель быстро вращающегося магнитара, который отдаёт энергию через узкую струю и широкий ветер, применена к GRB 060218 и сверхновой SN 2006aj. Струя объясняет мягкое рентгеновское тепловое излучение, а ветер — ультрафиолетовые и оптические кривые блеска.",
+    "id": "a36e8974241acfb61741f8ceac43cf87c7e22237"
+  },
+  {
+    "title": "A Coherent Search for New Galactic Magnetars using Fermi/GBM and follow-up Swift/BAT: 7 Candidates and a Large Burst Catalog",
+    "url": "https://arxiv.org/abs/2609.26897",
+    "source": "arxiv.org",
+    "published": "2026-09-22",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "По данным Fermi/GBM за 2013–2025 годы и архиву Swift/BAT найдено 1720 всплесков магнитаров, из них 1170 привязаны к 11 известным объектам. Авторы предлагают семь кандидатов в новые галактические магнитары для рентгеновских наблюдений.",
+    "id": "8c3816b8dbdd624bbd7dce3da1dd88290f39dab4"
+  },
+  {
+    "title": "Einstein Probe discovery of the magnetar EP J223759.5+531421",
+    "url": "https://arxiv.org/abs/2609.25990",
+    "source": "arxiv.org",
+    "published": "2026-09-22",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Сообщается об открытии нового галактического магнитара, замеченного Einstein Probe в июне 2026 года. Период пульсаций около 6 секунд, поле около 2,6×10¹⁴ Гс, характерный возраст около 34 тысяч лет; положение далеко от плоскости Галактики трудно согласовать с таким возрастом.",
+    "id": "3f674e2bbd055c59707843077102eda82056cbd7"
+  },
+  {
+    "title": "IXPE observation of the new magnetar source EP J223759.5+531421",
+    "url": "https://arxiv.org/abs/2609.25958",
+    "source": "arxiv.org",
+    "published": "2026-09-22",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "IXPE измерил поляризацию рентгеновского излучения нового магнитара: около 7% в среднем и до 63% у горячей компоненты. Авторы интерпретируют две тепловые компоненты как излучение холодных полярных шапок и меньшей горячей области с атмосферой.",
+    "id": "b2751cff70c9f9c60cd05ec64a6ddc82e4a0917e"
+  },
+  {
+    "title": "Magnetar magnetothermal evolution with Landau-quantized electrons: enhanced Joule heating due to free electron diamagnetism and the magnetar heating problem",
+    "url": "https://arxiv.org/abs/2609.24918",
+    "source": "arxiv.org",
+    "published": "2026-09-21",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Моделирование коры магнитара с учётом квантования Ландау показывает, что осцилляции де Гааза — ван Альфена усиливают джоулев нагрев при полях около 10¹⁴ Гс. Для самых ярких магнитаров эффект мал, так что проблему их нагрева он не решает.",
+    "id": "5dcbebccf1096e7b1c017564a7f25b214ea23da6"
+  },
+  {
+    "title": "1D PIC Simulations of Resonant Scattering-Driven Pair Cascades in Magnetar Magnetospheres",
+    "url": "https://arxiv.org/abs/2609.17661",
+    "source": "arxiv.org",
+    "published": "2026-09-15",
+    "found": "2026-10-15T04:22:25+00:00",
+    "topic": "магнитары",
+    "summary": "Одномерные PIC-симуляции рождения пар в закрученной магнитосфере магнитара показывают, что из-за радиационного торможения формируется один ускоряющий промежуток в одном полушарии. Это может давать асимметричное жёсткое рентгеновское излучение, заметное в фазовых спектрах.",
+    "id": "a02bfa9f70169ed238dd304566be4ef4e0d859ac"
+  }
+]
